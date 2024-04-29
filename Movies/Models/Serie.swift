@@ -10,5 +10,5 @@ struct Serie {
     let released: String
     let posterURL: String
     let plot: String
-    
+    //21
 }
