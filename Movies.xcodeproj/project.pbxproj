@@ -25,6 +25,7 @@
 		2E2586ED2BB5FA76006EF0BB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2E2586EB2BB5FA76006EF0BB /* Assets.xcassets */; };
 		37C0A8F62BD9383A00D39EC2 /* Serie.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C0A8F52BD9383A00D39EC2 /* Serie.swift */; };
 		37C0A8F82BD93EEC00D39EC2 /* DataMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C0A8F72BD93EEC00D39EC2 /* DataMock.swift */; };
+		37C0A8FA2BDFD0AC00D39EC2 /* VoidStateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37C0A8F92BDFD0AC00D39EC2 /* VoidStateViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		2E54F4A82BB5F734007B6D93 /* Movies.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movies.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37C0A8F52BD9383A00D39EC2 /* Serie.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Serie.swift; sourceTree = "<group>"; };
 		37C0A8F72BD93EEC00D39EC2 /* DataMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataMock.swift; sourceTree = "<group>"; };
+		37C0A8F92BDFD0AC00D39EC2 /* VoidStateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoidStateViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,6 +120,7 @@
 				2E2586E42BB5FA58006EF0BB /* FavoritesViewController.swift */,
 				2E2586E32BB5FA58006EF0BB /* MovieDetailViewController.swift */,
 				2E2586E52BB5FA58006EF0BB /* MovieListViewController.swift */,
+				37C0A8F92BDFD0AC00D39EC2 /* VoidStateViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 				2E2586C82BB5F984006EF0BB /* AppDelegate.swift in Sources */,
 				37C0A8F82BD93EEC00D39EC2 /* DataMock.swift in Sources */,
 				2E2586D02BB5F9A2006EF0BB /* Movie.swift in Sources */,
+				37C0A8FA2BDFD0AC00D39EC2 /* VoidStateViewController.swift in Sources */,
 				2E2586DE2BB5F9DB006EF0BB /* MovieCollectionViewCell.swift in Sources */,
 				2E2586C92BB5F984006EF0BB /* SceneDelegate.swift in Sources */,
 				2E2586E12BB5F9DB006EF0BB /* MovieTableViewCell.swift in Sources */,
