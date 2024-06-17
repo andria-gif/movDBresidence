@@ -10,7 +10,7 @@ import UIKit
 class SerieCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var background: UIView!
-    @IBOutlet weak var title: UIImageView!
+    @IBOutlet weak var title: UILabel!
     @IBOutlet weak var image: UIImageView!
     
     override func awakeFromNib() {
