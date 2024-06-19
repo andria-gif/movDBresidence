@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kMQ-zQ-waw">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oqL-ad-f3z">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -399,41 +399,52 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="16" minimumInteritemSpacing="16" id="xdi-eZ-cze">
-                                    <size key="itemSize" width="168" height="88"/>
+                                    <size key="itemSize" width="178" height="274"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="16" minY="16" maxX="16" maxY="16"/>
                                 </collectionViewFlowLayout>
                                 <cells>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="defaultSerieCell" id="MY6-Bp-bkn" customClass="SerieCollectionViewCell" customModule="Movies" customModuleProvider="target">
-                                        <rect key="frame" x="16" y="16" width="168" height="88"/>
+                                        <rect key="frame" x="16" y="16" width="178" height="274"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="T0t-LW-deI">
-                                            <rect key="frame" x="0.0" y="0.0" width="168" height="88"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="178" height="274"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gaf-cg-Cdh">
-                                                    <rect key="frame" x="16" y="51.5" width="136" height="20.5"/>
+                                                    <rect key="frame" x="16" y="20" width="146" height="238"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="h5p-3g-DzN">
-                                                    <rect key="frame" x="16" y="16" width="136" height="96"/>
+                                                    <rect key="frame" x="16" y="16" width="136" height="56"/>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" name="AccentColor"/>
                                             <constraints>
                                                 <constraint firstItem="h5p-3g-DzN" firstAttribute="leading" secondItem="T0t-LW-deI" secondAttribute="leading" constant="16" id="1Td-uY-jgY"/>
-                                                <constraint firstAttribute="trailing" secondItem="h5p-3g-DzN" secondAttribute="trailing" constant="16" id="71P-y7-f2h"/>
+                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="h5p-3g-DzN" secondAttribute="trailing" constant="16" id="71P-y7-f2h"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="h5p-3g-DzN" secondAttribute="bottom" constant="16" id="89a-yA-dGf"/>
+                                                <constraint firstAttribute="bottom" secondItem="Gaf-cg-Cdh" secondAttribute="bottom" constant="20" id="9gS-55-DI7"/>
+                                                <constraint firstItem="Gaf-cg-Cdh" firstAttribute="top" secondItem="T0t-LW-deI" secondAttribute="top" constant="16" id="J96-bM-nGA"/>
+                                                <constraint firstItem="Gaf-cg-Cdh" firstAttribute="top" secondItem="T0t-LW-deI" secondAttribute="top" constant="20" id="VdO-20-ZV9"/>
+                                                <constraint firstItem="Gaf-cg-Cdh" firstAttribute="leading" secondItem="T0t-LW-deI" secondAttribute="leading" constant="20" id="awG-dt-IIe"/>
                                                 <constraint firstAttribute="bottom" secondItem="Gaf-cg-Cdh" secondAttribute="bottom" constant="16" id="dTc-sg-7AO"/>
                                                 <constraint firstItem="Gaf-cg-Cdh" firstAttribute="top" relation="greaterThanOrEqual" secondItem="T0t-LW-deI" secondAttribute="top" constant="16" id="hBS-uE-xcb"/>
                                                 <constraint firstAttribute="trailing" secondItem="Gaf-cg-Cdh" secondAttribute="trailing" constant="16" id="j60-Np-2Is"/>
                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="h5p-3g-DzN" secondAttribute="bottom" constant="16" id="lpn-0v-XUI"/>
                                                 <constraint firstItem="Gaf-cg-Cdh" firstAttribute="leading" secondItem="T0t-LW-deI" secondAttribute="leading" constant="16" id="mDg-gg-hXA"/>
-                                                <constraint firstItem="h5p-3g-DzN" firstAttribute="top" secondItem="T0t-LW-deI" secondAttribute="top" constant="16" id="xlK-yl-xCy"/>
+                                                <constraint firstAttribute="trailing" secondItem="Gaf-cg-Cdh" secondAttribute="trailing" constant="20" id="o0g-0C-tLS"/>
+                                                <constraint firstItem="h5p-3g-DzN" firstAttribute="top" relation="greaterThanOrEqual" secondItem="T0t-LW-deI" secondAttribute="top" constant="16" id="xlK-yl-xCy"/>
                                             </constraints>
                                         </collectionViewCellContentView>
+                                        <connections>
+                                            <outlet property="background" destination="T0t-LW-deI" id="y2d-Tn-kHY"/>
+                                            <outlet property="image" destination="h5p-3g-DzN" id="X2o-Y9-1q4"/>
+                                            <outlet property="title" destination="Gaf-cg-Cdh" id="TXc-bu-ZVk"/>
+                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
@@ -455,6 +466,32 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UXc-AF-7c3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2087" y="1484"/>
+        </scene>
+        <!--Root View Controller-->
+        <scene sceneID="fS4-Ts-IkT">
+            <objects>
+                <tableViewController id="Um5-uW-RoY" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" title="Root View Controller" id="NXG-5S-Scz"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FAL-Mt-svS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3338" y="1469"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="fc3-ju-xbz">
+            <objects>
+                <navigationController id="adc-Go-9UE" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="GrH-nS-9Za">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="Um5-uW-RoY" kind="relationship" relationship="rootViewController" id="4Zd-St-ING"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y4p-p7-yho" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2774" y="1469"/>
         </scene>
     </scenes>
     <resources>
