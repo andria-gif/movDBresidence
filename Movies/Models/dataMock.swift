@@ -7,7 +7,7 @@
 
 import Foundation
 
-var testes: [Serie] = []
+var testes: [Series] = []
 
-let twd = Serie(id: "The Walking Dead", title: "The Walking Dead", released: "1/2/3", language: "alguma ai")
+let twd = Series(id: "The Walking Dead", title: "The Walking Dead", released: "1/2/3", language: "alguma ai")
 

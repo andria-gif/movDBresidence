@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Serie {
+struct Series: Equatable {
     let id: String
     let title: String
     let released: String?
