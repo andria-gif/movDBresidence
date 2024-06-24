@@ -12,4 +12,9 @@ struct Series: Equatable {
     let title: String
     let released: String?
     let language: String?
+    let genre: String?
+    let country: String?
+    let posterURL: String?
+    let plot: String?
+    
 }
