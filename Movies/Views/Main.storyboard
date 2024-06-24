@@ -395,11 +395,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OIg-Ky-ckv">
+                            <view hidden="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OIg-Ky-ckv">
                                 <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Busca não encontrada" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wui-Oj-4jZ">
-                                        <rect key="frame" x="16" y="352" width="382" height="21"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Busca não encontrada" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wui-Oj-4jZ">
+                                        <rect key="frame" x="16" y="352" width="170.5" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -460,8 +460,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Series" id="y0i-IW-nB0"/>
                     <connections>
-                        <outlet property="emptyStateView" destination="OIg-Ky-ckv" id="8KU-pS-KEW"/>
                         <outlet property="collectionView" destination="bgp-FX-0Kb" id="Mp1-La-d6D"/>
+                        <outlet property="emptyStateView" destination="OIg-Ky-ckv" id="8KU-pS-KEW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UXc-AF-7c3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
