@@ -9,14 +9,20 @@ import Foundation
 import UIKit
 
 class SeriesController: UIViewController {
-
+    
+    //outlets
     @IBOutlet weak var collectionView: UICollectionView!
     
     var dataMock = DataMock()
     
-    private var numberOfItemsInRow = 3
-    private var minimumSpacing = 5
-    private var edgeInsetPadding = 10
+    
+    // Collection item parameters
+        private let itemsPerRow = 2.0
+        private let spaceBetweenItems = 16.0
+        private let itemAspectRatio = 1.5
+        private let marginSize = 16.0
+    
+    
     
     override func viewDidLoad(){
         super.viewDidLoad()
@@ -24,7 +30,23 @@ class SeriesController: UIViewController {
         collectionView.delegate = self
         dataMock.insertMock()
     }
+    
+    
+    private func setupCollectionView() {
+        let nib = UINib(nibName: "SerieCollectionViewCell", bundle: nil)
+        collectionView.register(nib, forCellWithReuseIdentifier: MovieCollectionViewCell.identifier)
+        collectionView.dataSource = self
+        collectionView.delegate = self
+    }
+    
+    
+    
+
+    
+    
 }
+
+
 
 extension SeriesController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -36,31 +58,39 @@ extension SeriesController : UICollectionViewDataSource {
         
         let serie = dataMock.series[indexPath.row]
         cell.background.backgroundColor = UIColor.orange
-        cell.title.text = serie.title
+        
         cell.layer.cornerRadius = 16
          
         return cell
     }
 }
 
+//  MARK: - UICollectionViewDelegateFlowLayout
 
 extension SeriesController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        let inset = UIEdgeInsets(top: 40, left: 40, bottom: 40, right: 40)
-        edgeInsetPadding = Int(inset.left + inset.right)
-        return inset
+        return UIEdgeInsets(top: marginSize, left: marginSize, bottom: marginSize, right: marginSize)
     }
 
+
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return CGFloat(minimumSpacing)
+        return CGFloat(spaceBetweenItems)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return CGFloat(minimumSpacing)
+        return CGFloat(spaceBetweenItems)
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = (Int(UIScreen.main.bounds.size.width) - (numberOfItemsInRow - 1) * minimumSpacing - edgeInsetPadding) / numberOfItemsInRow
-        return CGSize(width: width, height: width)
+       
+        
+        let collectionWidth = collectionView.frame.size.width - (2 * marginSize)
+        let availableWidth = collectionWidth - (spaceBetweenItems * (itemsPerRow - 1))
+        
+        let itemWidth = availableWidth / itemsPerRow
+        let itemHeight = itemWidth * itemAspectRatio
+        
+        
+        return CGSize(width: itemWidth, height: itemHeight)
     }
 }
