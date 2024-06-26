@@ -112,10 +112,13 @@ extension SeriesController: UICollectionViewDelegateFlowLayout {
 extension SeriesController: UISearchResultsUpdating {
     func updateSearchResults(for searchController : UISearchController) {
         let searchText = searchController.searchBar.text ?? ""
+        emptyStateView.isHidden = true
+        collectionView.isHidden = false
         if searchText.isEmpty{
             filteredSeries = series
         } else {
             filteredSeries = []
+            
             for currentSeries in series{
                 if currentSeries.title.lowercased().contains(searchText.lowercased()) {
                     if series.contains(where: {$0 == currentSeries}) && !filteredSeries.contains(where: {$0 == currentSeries}) {
@@ -123,6 +126,7 @@ extension SeriesController: UISearchResultsUpdating {
                     }
                 } else {
                     emptyStateView.isHidden = false
+                    collectionView.isHidden = true
                 }
             }
         }
