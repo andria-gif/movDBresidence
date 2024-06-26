@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="oqL-ad-f3z">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="kMQ-zQ-waw">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -336,7 +336,7 @@
         <scene sceneID="ciR-uT-Vky">
             <objects>
                 <navigationController title="Series" id="46r-3V-hy2" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="5kN-dy-LOu"/>
+                    <tabBarItem key="tabBarItem" title="Series" image="laptopcomputer" catalog="system" id="5kN-dy-LOu"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="R5d-9B-kuk">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -482,6 +482,7 @@
         <image name="greys" width="250" height="333"/>
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
+        <image name="laptopcomputer" catalog="system" width="128" height="73"/>
         <namedColor name="AccentColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
