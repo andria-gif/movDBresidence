@@ -53,6 +53,18 @@ class SeriesController: UIViewController {
         collectionView.delegate = self
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toDetailSeries" {
+            guard let destination = segue.destination as? SeriesDetailViewController,
+                let series = sender as? Series
+            else {
+                return
+            }
+            destination.series = series
+        }
+        
+    }
+    
     
     
 
@@ -106,6 +118,9 @@ extension SeriesController: UICollectionViewDelegateFlowLayout {
         
         
         return CGSize(width: itemWidth, height: itemHeight)
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        performSegue(withIdentifier: "toDetailSeries", sender: series[indexPath.row])
     }
 }
 
