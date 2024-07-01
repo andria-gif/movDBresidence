@@ -54,11 +54,20 @@ class SeriesController: UIViewController {
     }
     
     
+    //sort
+    func sortSeriesByTitle(_ series: [Series]) -> [Series] {
+        let sortedSeries = series.sorted { $0.title < $1.title }
+        return sortedSeries
+    }
     
-
+    
+   
     
     
 }
+
+    
+
 
 
 
