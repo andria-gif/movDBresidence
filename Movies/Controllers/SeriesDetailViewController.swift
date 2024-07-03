@@ -21,11 +21,15 @@ class SeriesDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.title = series?.title
-        plotLabel.text = series?.genre
-        releasedLabel.text = series?.genre
-        languageLabel.text = series?.genre
-        countryLabel.text = series?.genre
-        genreLabel.text = series?.genre
+        guard let series = series else {
+            return
+        }
+
+        self.title = series.title
+        plotLabel.text = series.plot
+        releasedLabel.text = series.released
+        languageLabel.text = series.language
+        countryLabel.text = series.country
+        genreLabel.text = series.genre
     }
 }
