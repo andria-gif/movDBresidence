@@ -30,6 +30,9 @@ class SeriesController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         setupView()
+        
+        sortSeriesByTitle(&series)
+        
     }
     
     func setupView(){
@@ -54,6 +57,13 @@ class SeriesController: UIViewController {
             }
             destination.series = series
         }
+    }
+}
+
+    //sort
+    func sortSeriesByTitle(_ series: inout [Series])  {
+       series = series.sorted { $0.title < $1.title }
+    
     }
 }
 
