@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Series: Equatable {
     let id: String
@@ -16,5 +17,6 @@ struct Series: Equatable {
     let country: String?
     let posterURL: String?
     let plot: String?
+    let image: UIImage?
     
 }
