@@ -58,7 +58,7 @@ class SeriesController: UIViewController {
             destination.series = series
         }
     }
-}
+
 
     //sort
     func sortSeriesByTitle(_ series: inout [Series])  {

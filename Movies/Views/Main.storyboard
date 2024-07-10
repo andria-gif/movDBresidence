@@ -424,7 +424,9 @@
                             <constraint firstItem="OIg-Ky-ckv" firstAttribute="bottom" secondItem="c2E-1r-KoR" secondAttribute="bottom" id="zhd-v7-er5"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Series" largeTitleDisplayMode="always" id="y0i-IW-nB0"/>
+                    <navigationItem key="navigationItem" title="Series" largeTitleDisplayMode="always" id="y0i-IW-nB0">
+                        <barButtonItem key="rightBarButtonItem" title="Filter" image="line.3.horizontal.decrease.circle" catalog="system" id="TRu-fz-7kb"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="bgp-FX-0Kb" id="Mp1-La-d6D"/>
                         <outlet property="emptyStateView" destination="OIg-Ky-ckv" id="8KU-pS-KEW"/>
@@ -586,6 +588,7 @@
         <image name="heart" catalog="system" width="128" height="109"/>
         <image name="heart.fill" catalog="system" width="128" height="109"/>
         <image name="laptopcomputer" catalog="system" width="128" height="73"/>
+        <image name="line.3.horizontal.decrease.circle" catalog="system" width="128" height="121"/>
         <namedColor name="AccentColor">
             <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
