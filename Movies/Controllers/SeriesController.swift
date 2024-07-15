@@ -30,16 +30,12 @@ class SeriesController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         setupView()
-        
-       
-        
     }
     
     
     
     @IBAction func didTapFilterButton(_ sender: UIButton) {
         sortSeriesByTitle(&series)
-        
     }
     
     
