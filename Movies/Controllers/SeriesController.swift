@@ -132,7 +132,6 @@ extension SeriesController: UISearchResultsUpdating {
                     if series.contains(where: {$0 == currentSeries}) &&
                         !filteredSeries.contains(where: {$0 == currentSeries}) {
                         filteredSeries.append(currentSeries)
-                        print(currentSeries.title)
                     }
                     else {
                         emptyStateView.isHidden = false
