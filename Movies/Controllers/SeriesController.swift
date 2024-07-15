@@ -13,7 +13,7 @@ class SeriesController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var emptyStateView: UIView!
     let searchController = UISearchController(searchResultsController: nil)
-    var series: [Series] = [Series(id: "The Walking Dead", title: "The Walking Dead", released: "1/2/3", language: "alguma ai",genre: "batata", country: " ", posterURL: "", plot: "", image: nil), Series(id: "Greys Anatomy", title: "Greys Anatomy", released: "1/2/3", language: "alguma ai",genre: "batata", country: " ", posterURL: "", plot: "", image: UIImage(named: "greys"))
+    var 	series: [Series] = [Series(id: "The Walking Dead", title: "The Walking Dead", released: "1/2/3", language: "alguma ai",genre: "batata", country: " ", posterURL: "", plot: "", image: nil), Series(id: "Greys Anatomy", title: "Greys Anatomy", released: "1/2/3", language: "alguma ai",genre: "batata", country: " ", posterURL: "", plot: "", image: UIImage(named: "greys"))
                             ,Series(id: "Peaky Blinders", title: "Peaky Blinders", released: "1/2/3", language: "alguma ai",genre: "batata", country: " ", posterURL: "", plot: "", image: nil)
                             ,Series(id: "Caverna do Dragão", title: "Caverna do Dragão", released: "1/2/3", language: "alguma ai", genre: "batata", country: " ", posterURL: "", plot: "", image: UIImage(named: "cave")), Series(id: "The Witcher", title: "The Witcher", released: "1/2/3", language: "alguma ai", genre: "batata", country: " ", posterURL: "", plot: "", image: nil),
                             
@@ -30,12 +30,8 @@ class SeriesController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         setupView()
-        
-       
-        
+
     }
-    
-    
     
     @IBAction func didTapFilterButton(_ sender: UIButton) {
         sortSeriesByTitle(&series)
@@ -77,12 +73,12 @@ class SeriesController: UIViewController {
 
 extension SeriesController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return series.count
+        return filteredSeries.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "defaultSerieCell", for: indexPath) as! SerieCollectionViewCell
-        let serie = series[indexPath.row]
+        let serie = filteredSeries[indexPath.row]
         cell.background.backgroundColor = UIColor.orange
         cell.image.image = serie.image
 
@@ -133,12 +129,14 @@ extension SeriesController: UISearchResultsUpdating {
             
             for currentSeries in series{
                 if currentSeries.title.lowercased().contains(searchText.lowercased()) {
-                    if series.contains(where: {$0 == currentSeries}) && !filteredSeries.contains(where: {$0 == currentSeries}) {
+                    if series.contains(where: {$0 == currentSeries}) &&
+                        !filteredSeries.contains(where: {$0 == currentSeries}) {
                         filteredSeries.append(currentSeries)
                     }
-                } else {
-                    emptyStateView.isHidden = false
-                    collectionView.isHidden = true
+                    else {
+                        emptyStateView.isHidden = false
+                        collectionView.isHidden = true
+                }
                 }
             }
         }
