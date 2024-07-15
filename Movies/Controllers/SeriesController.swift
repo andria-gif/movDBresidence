@@ -30,6 +30,7 @@ class SeriesController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         setupView()
+        filteredSeries = series
 
     }
     
@@ -113,7 +114,7 @@ extension SeriesController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: itemWidth, height: itemHeight)
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "toDetailSeries", sender: series[indexPath.row])
+        performSegue(withIdentifier: "toDetailSeries", sender: filteredSeries[indexPath.row])
     }
 }
 
@@ -132,6 +133,7 @@ extension SeriesController: UISearchResultsUpdating {
                     if series.contains(where: {$0 == currentSeries}) &&
                         !filteredSeries.contains(where: {$0 == currentSeries}) {
                         filteredSeries.append(currentSeries)
+                        print(currentSeries.title)
                     }
                     else {
                         emptyStateView.isHidden = false
