@@ -31,5 +31,6 @@ class SeriesDetailViewController: UIViewController {
         languageLabel.text = series.language
         countryLabel.text = series.country
         genreLabel.text = series.genre
+        imageView.image = series.image
     }
 }
