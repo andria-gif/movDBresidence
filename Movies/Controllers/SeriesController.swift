@@ -13,9 +13,9 @@ class SeriesController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var emptyStateView: UIView!
     let searchController = UISearchController(searchResultsController: nil)
-    var 	series: [Series] = [Series(id: "The Walking Dead", title: "The Walking Dead", released: "1/2/3", language: "alguma ai",genre: "batata", country: " ", posterURL: "", plot: "", image: nil), Series(id: "Greys Anatomy", title: "Greys Anatomy", released: "1/2/3", language: "alguma ai",genre: "batata", country: " ", posterURL: "", plot: "", image: UIImage(named: "greys"))
-                            ,Series(id: "Peaky Blinders", title: "Peaky Blinders", released: "1/2/3", language: "alguma ai",genre: "batata", country: " ", posterURL: "", plot: "", image: nil)
-                            ,Series(id: "Caverna do Dragão", title: "Caverna do Dragão", released: "1/2/3", language: "alguma ai", genre: "batata", country: " ", posterURL: "", plot: "", image: UIImage(named: "cave")), Series(id: "The Witcher", title: "The Witcher", released: "1/2/3", language: "alguma ai", genre: "batata", country: " ", posterURL: "", plot: "", image: nil),
+    var series: [Series] = [Series(id: "The Walking Dead", title: "The Walking Dead", released: "1/2/3", language: "alguma ai",genre: "batata", country: " ", posterURL: "", plot: "", image: UIImage(named: "TheWalkingDead")), Series(id: "Greys Anatomy", title: "Greys Anatomy", released: "1/2/3", language: "alguma ai",genre: "batata", country: " ", posterURL: "", plot: "", image: UIImage(named: "greys"))
+                            ,Series(id: "Peaky Blinders", title: "Peaky Blinders", released: "1/2/3", language: "alguma ai",genre: "batata", country: " ", posterURL: "", plot: "", image: UIImage(named: "PeakyBlinders"))
+                            ,Series(id: "Caverna do Dragão", title: "Caverna do Dragão", released: "1/2/3", language: "alguma ai", genre: "batata", country: " ", posterURL: "", plot: "", image: UIImage(named: "Cave")), Series(id: "The Witcher", title: "The Witcher", released: "1/2/3", language: "alguma ai", genre: "batata", country: " ", posterURL: "", plot: "", image: UIImage(named: "TheWitcher")),
                             
     ]
     var filteredSeries: [Series] = []
