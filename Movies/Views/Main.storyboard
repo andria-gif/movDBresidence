@@ -425,7 +425,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Series" largeTitleDisplayMode="always" id="y0i-IW-nB0">
-                        <barButtonItem key="rightBarButtonItem" title="Filter" image="line.3.horizontal.decrease.circle" catalog="system" id="TRu-fz-7kb"/>
+                        <barButtonItem key="rightBarButtonItem" title="Filter" image="line.3.horizontal.decrease.circle" catalog="system" id="TRu-fz-7kb">
+                            <connections>
+                                <action selector="didTapFilterButton:" destination="oqL-ad-f3z" id="xhV-d8-ixm"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="bgp-FX-0Kb" id="Mp1-La-d6D"/>

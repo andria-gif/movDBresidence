@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import UIKit
 
 struct Series: Equatable, Decodable {
     let id: String
@@ -15,6 +16,7 @@ struct Series: Equatable, Decodable {
     let country: String?
     let posterURL: String?
     let plot: String?
+    let image: UIImage?
     
     enum CodingKeys: String, CodingKey {
         case id = "id"

@@ -30,10 +30,14 @@ class SeriesController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         setupView()
-        
-        sortSeriesByTitle(&series)
-        
+        filteredSeries = series
+
     }
+    
+    @IBAction func didTapFilterButton(_ sender: UIButton) {
+        sortSeriesByTitle(&series)
+    }
+    
     
     func setupView(){
         searchController.searchResultsUpdater = self
@@ -63,19 +67,20 @@ class SeriesController: UIViewController {
     //sort
     func sortSeriesByTitle(_ series: inout [Series])  {
        series = series.sorted { $0.title < $1.title }
-    
+        collectionView.reloadData()
     }
 }
 
 extension SeriesController : UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return series.count
+        return filteredSeries.count
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "defaultSerieCell", for: indexPath) as! SerieCollectionViewCell
-        let serie = series[indexPath.row]
+        let serie = filteredSeries[indexPath.row]
         cell.background.backgroundColor = UIColor.orange
+        cell.image.image = serie.image
 
         cell.layer.cornerRadius = 16
          
@@ -108,7 +113,7 @@ extension SeriesController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: itemWidth, height: itemHeight)
     }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "toDetailSeries", sender: series[indexPath.row])
+        performSegue(withIdentifier: "toDetailSeries", sender: filteredSeries[indexPath.row])
     }
 }
 
@@ -124,16 +129,18 @@ extension SeriesController: UISearchResultsUpdating {
             
             for currentSeries in series{
                 if currentSeries.title.lowercased().contains(searchText.lowercased()) {
-                    if series.contains(where: {$0 == currentSeries}) && !filteredSeries.contains(where: {$0 == currentSeries}) {
+                    if series.contains(where: {$0 == currentSeries}) &&
+                        !filteredSeries.contains(where: {$0 == currentSeries}) {
                         filteredSeries.append(currentSeries)
                     }
-                } else {
-                    emptyStateView.isHidden = false
-                    collectionView.isHidden = true
+                    else {
+                        emptyStateView.isHidden = false
+                        collectionView.isHidden = true
+                }
                 }
             }
         }
-        // recarregar os dados da collectionView
+        collectionView.reloadData()
     }
 }	
 
