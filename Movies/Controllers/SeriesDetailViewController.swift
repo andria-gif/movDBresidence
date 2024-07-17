@@ -30,6 +30,5 @@ class SeriesDetailViewController: UIViewController {
         releasedLabel.text = series.released
         languageLabel.text = series.language
         countryLabel.text = series.country
-        genreLabel.text = series.genre
     }
 }
