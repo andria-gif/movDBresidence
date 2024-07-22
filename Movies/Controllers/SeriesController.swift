@@ -13,9 +13,9 @@ class SeriesController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var emptyStateView: UIView!
     let searchController = UISearchController(searchResultsController: nil)
-    var series: [Series] = [Series(id: "The Walking Dead", title: "The Walking Dead", released: "1/2/3", language: "alguma ai", country: " ", posterURL: "", plot: ""), Series(id: "Greys Anatomy", title: "Greys Anatomy", released: "1/2/3", language: "alguma ai", country: " ", posterURL: "", plot: "")
-                            ,Series(id: "Peaky Blinders", title: "Peaky Blinders", released: "1/2/3", language: "alguma ai", country: " ", posterURL: "", plot: "")
-                            ,Series(id: "Caverna do Dragão", title: "Caverna do Dragão", released: "1/2/3", language: "alguma ai", country: " ", posterURL: "", plot: ""), Series(id: "The Witcher", title: "The Witcher", released: "1/2/3", language: "alguma ai", country: " ", posterURL: "", plot: ""),
+    var series: [Series] = [Series(id: 2, title: "The Walking Dead", released: "1/2/3", language: "alguma ai", country: " ", posterURL: "", plot: "", image:nil), Series(id: 3, title: "Greys Anatomy", released: "1/2/3", language: "alguma ai", country: " ", posterURL: "", plot: "", image:nil)
+                            ,Series(id: 1, title: "Peaky Blinders", released: "1/2/3", language: "alguma ai", country: " ", posterURL: "", plot: "", image:nil)
+                            ,Series(id: 4, title: "Caverna do Dragão", released: "1/2/3", language: "alguma ai", country: " ", posterURL: "", plot: "", image:nil), Series(id: 5, title: "The Witcher", released: "1/2/3", language: "alguma ai", country: " ", posterURL: "", plot: "", image:nil),
                             
     ]
     var filteredSeries: [Series] = []
@@ -24,6 +24,7 @@ class SeriesController: UIViewController {
     private let itemAspectRatio = 1.5
     private let marginSize = 16.0
 
+    var seriesService: SeriesService = SeriesService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +32,9 @@ class SeriesController: UIViewController {
         collectionView.delegate = self
         setupView()
         filteredSeries = series
+        seriesService.searchSeries(withTitle: "Supergirl") { series in
+            print(series)
+        }
 
     }
     
@@ -80,7 +84,7 @@ extension SeriesController : UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "defaultSerieCell", for: indexPath) as! SerieCollectionViewCell
         let serie = filteredSeries[indexPath.row]
         cell.background.backgroundColor = UIColor.orange
-        cell.image.image = serie.image
+        cell.image.image = UIImage(data: serie.image ?? Data())
 
         cell.layer.cornerRadius = 16
          
