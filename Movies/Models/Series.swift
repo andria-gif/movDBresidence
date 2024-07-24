@@ -9,14 +9,14 @@ import Foundation
 import UIKit
 
 struct Series: Equatable, Decodable {
-    let id: String
+    let id: Int
     let title: String
     let released: String?
     let language: String?
     let country: String?
     let posterURL: String?
     let plot: String?
-    let image: UIImage?
+    let image: Data?
     
     enum CodingKeys: String, CodingKey {
         case id = "id"
@@ -26,5 +26,6 @@ struct Series: Equatable, Decodable {
         case country = "original_country"
         case posterURL = "poster_path"
         case plot = "overview"
+        case image
     }
 }
