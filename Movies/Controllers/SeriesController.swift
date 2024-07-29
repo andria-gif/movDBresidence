@@ -13,11 +13,7 @@ class SeriesController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var emptyStateView: UIView!
     let searchController = UISearchController(searchResultsController: nil)
-    var series: [Series] = [Series(id: 2, title: "The Walking Dead", released: "1/2/3", language: "alguma ai", country: " ", posterURL: "", plot: "", image:nil), Series(id: 3, title: "Greys Anatomy", released: "1/2/3", language: "alguma ai", country: " ", posterURL: "", plot: "", image:nil)
-                            ,Series(id: 1, title: "Peaky Blinders", released: "1/2/3", language: "alguma ai", country: " ", posterURL: "", plot: "", image:nil)
-                            ,Series(id: 4, title: "Caverna do Dragão", released: "1/2/3", language: "alguma ai", country: " ", posterURL: "", plot: "", image:nil), Series(id: 5, title: "The Witcher", released: "1/2/3", language: "alguma ai", country: " ", posterURL: "", plot: "", image:nil),
-                            
-    ]
+    var series: [Series] = []
     var filteredSeries: [Series] = []
     private let itemsPerRow = 2.0
     private let spaceBetweenItems = 16.0
@@ -32,8 +28,22 @@ class SeriesController: UIViewController {
         collectionView.delegate = self
         setupView()
         filteredSeries = series
+        var tempSeries: [Series] = []
         seriesService.searchSeries(withTitle: "Supergirl") { series in
-            print(series)
+            if let series = series {
+                self.filteredSeries = series
+                for innerSeries in self.filteredSeries {
+                    self.seriesService.loadImageData(fromURL: innerSeries.posterURL ?? "") { data in
+                        var auxSeries = innerSeries
+                        auxSeries.image = data
+                        tempSeries.append(auxSeries)
+                    }
+                }
+                DispatchQueue.main.async {
+                    self.filteredSeries = tempSeries
+                    self.collectionView.reloadData()
+                }
+            }
         }
 
     }
@@ -82,11 +92,10 @@ extension SeriesController : UICollectionViewDataSource {
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "defaultSerieCell", for: indexPath) as! SerieCollectionViewCell
-        let serie = filteredSeries[indexPath.row]
+        let series = filteredSeries[indexPath.row]
         cell.background.backgroundColor = UIColor.orange
-        cell.image.image = UIImage(data: serie.image ?? Data())
-
         cell.layer.cornerRadius = 16
+        cell.image.image = UIImage(data: series.image ?? Data())
          
         return cell
     }
@@ -130,17 +139,21 @@ extension SeriesController: UISearchResultsUpdating {
             filteredSeries = series
         } else {
             filteredSeries = []
-            
-            for currentSeries in series{
-                if currentSeries.title.lowercased().contains(searchText.lowercased()) {
-                    if series.contains(where: {$0 == currentSeries}) &&
-                        !filteredSeries.contains(where: {$0 == currentSeries}) {
-                        filteredSeries.append(currentSeries)
+            var tempSeries: [Series] = []
+            seriesService.searchSeries(withTitle: searchText.lowercased()) { series in
+                if let series = series {
+                    self.filteredSeries = series
+                    for innerSeries in self.filteredSeries {
+                        self.seriesService.loadImageData(fromURL: innerSeries.posterURL ?? "") { data in
+                            var auxSeries = innerSeries
+                            auxSeries.image = data
+                            tempSeries.append(auxSeries)
+                        }
                     }
-                    else {
-                        emptyStateView.isHidden = false
-                        collectionView.isHidden = true
-                }
+                    DispatchQueue.main.async {
+                        self.filteredSeries = tempSeries
+                        self.collectionView.reloadData()
+                    }
                 }
             }
         }
