@@ -29,7 +29,8 @@ class SeriesDetailViewController: UIViewController {
         plotLabel.text = series.plot
         releasedLabel.text = series.released
         languageLabel.text = series.language
-        countryLabel.text = series.country
+        countryLabel.text = series.country?.first ?? ""
         imageView.image = UIImage(data: series.image ?? Data())
+        
     }
 }
